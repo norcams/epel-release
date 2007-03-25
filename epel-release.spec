@@ -1,6 +1,6 @@
 Name:           epel-release       
-Version:        4 
-Release:        4
+Version:        6
+Release:        0
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base 
@@ -66,6 +66,9 @@ sed -i '/^\#\ epel\ repo\ /d' %{_sysconfdir}/sysconfig/rhn/sources
 
 
 %changelog
+* Sun Mar 25 2007 Michael Stahnke <mastahnke@gmail.com> - 6-0
+- Bumped in devel to RHEL 6. (We can dream).
+
 * Sun Mar 25 2007 Michael Stahnke <mastahnke@gmail.com> - 4-4
 - Changed description again
 
