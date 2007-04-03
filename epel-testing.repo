@@ -1,6 +1,6 @@
 [epel-testing]
 name=Extra Packages for Enterprise Linux 4 - Testing - $basearch 
-baseurl=http://download.fedora.redhat.com/pub/epel/testing/$releasever/$basearch
+baseurl=http://download.fedora.redhat.com/pub/epel/testing/4/$basearch
 failovermethod=priority
 enabled=0
 gpgcheck=1
