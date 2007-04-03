@@ -1,6 +1,6 @@
 Name:           epel-release       
 Version:        5 
-Release:        1 
+Release:        2
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base 
@@ -56,6 +56,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon Apr 02 2007 Michael Stahnke <mastahnke@gmail.com> - 5-2
+- Missed a syntax correction in epel-testing.repo
+
 * Mon Apr 02 2007 Michael Stahnke <mastahnke@gmail.com> - 5-1
 - Hard coded version '5' in epel yum repo files. 
 
