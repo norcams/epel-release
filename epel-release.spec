@@ -1,6 +1,6 @@
 Name:           epel-release       
 Version:        4 
-Release:        5
+Release:        6
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base 
@@ -67,6 +67,9 @@ sed -i '/^\#\ epel\ repo\ /d' %{_sysconfdir}/sysconfig/rhn/sources
 
 
 %changelog
+* Sun Mar 25 2007 Michael Stahnke <mastahnke@gmail.com> - 4-6
+- Hard-coded '4' in yum repo files to fix string mismatch. 
+
 * Sun Mar 25 2007 Michael Stahnke <mastahnke@gmail.com> - 4-5
 - Specfile cleanup
 
