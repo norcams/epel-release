@@ -15,7 +15,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL
 gpgcheck=1
 
 [epel-source]
-name=Extra Packages for Enterprise Linux 4 - Source - $basearch - Source
+name=Extra Packages for Enterprise Linux 4 - Testing - Source - $basearch - Source
 baseurl=http://download.fedora.redhat.com/pub/epel/4/SRPMS
 failovermethod=priority
 enabled=0
