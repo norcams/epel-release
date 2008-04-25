@@ -1,13 +1,13 @@
 Name:           epel-release       
 Version:        4 
-Release:        6
+Release:        7
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base 
 License:        GPL 
 URL:            http://download.fedora.redhat.com/pub/epel
 
-# This is a Red Hat maintained package which is specific to
+# This is a Fedora maintained package which is specific to
 # our distribution.  Thus the source is only available from
 # within this srpm.
 
@@ -67,6 +67,9 @@ sed -i '/^\#\ epel\ repo\ /d' %{_sysconfdir}/sysconfig/rhn/sources
 
 
 %changelog
+* Fri Apr 25 2008 Michael Stahnke <mastahnke@gmail.com> - 4-7
+- Updated the repo file to use mirror manager for yum 
+
 * Sun Mar 25 2007 Michael Stahnke <mastahnke@gmail.com> - 4-6
 - Hard-coded '4' in yum repo files to fix string mismatch. 
 
