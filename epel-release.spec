@@ -1,6 +1,6 @@
 Name:           epel-release       
 Version:        4 
-Release:        8
+Release:        9
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base 
@@ -20,6 +20,8 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:     noarch
 Requires:      redhat-release >=  %{version} 
+Requires(postun): perl
+Requires(post): perl
 
 %description
 This package contains the Extra Packages for Enterprise Linux (EPEL) repository
@@ -49,14 +51,32 @@ install -pm 644 %{SOURCE2} %{SOURCE3}  \
 rm -rf $RPM_BUILD_ROOT
 
 %post
-echo "# epel repo -- added by epel-release " \
-    >> %{_sysconfdir}/sysconfig/rhn/sources
-echo "yum epel http://download.fedoraproject.org/pub/epel/%{version}/\$ARCH" \
-    >> %{_sysconfdir}/sysconfig/rhn/sources
+RHN_SOURCES=/etc/sysconfig/rhn/sources
+if [ -e ${RHN_SOURCES} ]; then
+  if ! grep -q "^#DONT UPDATE %{name}" ${RHN_SOURCES} > /dev/null 2>&1; then
+    # remove existing config
+    perl -n -i -e 'print if not /^#BEGIN %{name}/ ... /^#END %{name}/' ${RHN_SOURCES}
+
+    # add updated config unless user specifies not to
+    echo "#BEGIN %{name}" >> ${RHN_SOURCES}
+    echo "# This block is managed by the %{name} RPM." >> ${RHN_SOURCES}
+    echo "" >> ${RHN_SOURCES}
+    echo "yum EPEL http://download.fedoraproject.org/pub/epel/%{version}/\$ARCH" >> ${RHN_SOURCES}
+    echo "" >> ${RHN_SOURCES}
+    echo "#END %{name}" >> ${RHN_SOURCES}
+  fi
+fi
+exit 0
 
 %postun 
-sed -i '/^yum\ epel/d' %{_sysconfdir}/sysconfig/rhn/sources
-sed -i '/^\#\ epel\ repo\ /d' %{_sysconfdir}/sysconfig/rhn/sources
+RHN_SOURCES=/etc/sysconfig/rhn/sources
+if [ $1 = 0 ]; then 
+ # remove up2date config here
+  if [ -e $RHN_SOURCES ]; then
+    perl -n -i -e 'print if not /^#BEGIN %{name}/ ... /^#END %{name}/' ${RHN_SOURCES}
+  fi
+fi
+exit 0
 
 
 %files
@@ -67,6 +87,10 @@ sed -i '/^\#\ epel\ repo\ /d' %{_sysconfdir}/sysconfig/rhn/sources
 
 
 %changelog
+* Fri Apr 25 2008 Matt Domsch <Matt_Domsch@dell.com> - 4-9
+- fix post and postun.  postun would unconditionally remove the lines
+  added by post.
+
 * Fri Apr 25 2008 Matt Domsch <Matt_Domsch@dell.com> - 4-8
 - use mirrorlists in epel-testing.repo
 - use download.fedoraproject.org in (commented out) baseurls
