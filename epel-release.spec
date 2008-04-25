@@ -1,17 +1,17 @@
 Name:           epel-release       
 Version:        5 
-Release:        2
+Release:        3
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base 
 License:        GPL 
-URL:            http://download.fedora.redhat.com/pub/epel
+URL:            http://download.fedoraproject.org/pub/epel
 
 # This is a Red Hat maintained package which is specific to
 # our distribution.  Thus the source is only available from
 # within this srpm.
 
-Source0:        http://download.fedora.redhat.com/pub/epel/RPM-GPG-KEY-EPEL
+Source0:        http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL
 Source1:        GPL	
 Source2:        epel.repo	
 Source3:        epel-testing.repo	
@@ -56,6 +56,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri Apr 25 2008 Matt Domsch <Matt_Domsch@dell.com> - 5-3
+- use mirrorlists in epel-testing.repo
+- use download.fedoraproject.org in (commented out) baseurls
+
 * Mon Apr 02 2007 Michael Stahnke <mastahnke@gmail.com> - 5-2
 - Missed a syntax correction in epel-testing.repo
 
