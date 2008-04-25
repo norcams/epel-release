@@ -1,17 +1,17 @@
 Name:           epel-release       
 Version:        4 
-Release:        7
+Release:        8
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base 
 License:        GPL 
-URL:            http://download.fedora.redhat.com/pub/epel
+URL:            http://download.fedoraproject.org/pub/epel
 
 # This is a Fedora maintained package which is specific to
 # our distribution.  Thus the source is only available from
 # within this srpm.
 
-Source0:        http://download.fedora.redhat.com/pub/epel/RPM-GPG-KEY-EPEL
+Source0:        http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL
 Source1:        GPL	
 Source2:        epel.repo	
 Source3:        epel-testing.repo	
@@ -51,7 +51,7 @@ rm -rf $RPM_BUILD_ROOT
 %post
 echo "# epel repo -- added by epel-release " \
     >> %{_sysconfdir}/sysconfig/rhn/sources
-echo "yum epel http://download.fedora.redhat.com/pub/epel/%{version}/\$ARCH" \
+echo "yum epel http://download.fedoraproject.org/pub/epel/%{version}/\$ARCH" \
     >> %{_sysconfdir}/sysconfig/rhn/sources
 
 %postun 
@@ -67,6 +67,10 @@ sed -i '/^\#\ epel\ repo\ /d' %{_sysconfdir}/sysconfig/rhn/sources
 
 
 %changelog
+* Fri Apr 25 2008 Matt Domsch <Matt_Domsch@dell.com> - 4-8
+- use mirrorlists in epel-testing.repo
+- use download.fedoraproject.org in (commented out) baseurls
+
 * Fri Apr 25 2008 Michael Stahnke <mastahnke@gmail.com> - 4-7
 - Updated the repo file to use mirror manager for yum 
 

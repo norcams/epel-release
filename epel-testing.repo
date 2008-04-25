@@ -1,6 +1,6 @@
 [epel-testing]
 name=Extra Packages for Enterprise Linux 4 - Testing - $basearch 
-#baseurl=http://download.fedora.redhat.com/pub/epel/testing/4/$basearch
+#baseurl=http://download.fedoraproject.org/pub/epel/testing/4/$basearch
 mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=testing-epel4&arch=$basearch
 failovermethod=priority
 enabled=0
@@ -9,8 +9,8 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL
 
 [epel-testing-debuginfo]
 name=Extra Packages for Enterprise Linux 4 - Testing - $basearch - Debug
-#baseurl=http://download.fedora.redhat.com/pub/epel/testing/4/$basearch/debug
-mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=testing-epel4&arch=$basearch
+#baseurl=http://download.fedoraproject.org/pub/epel/testing/4/$basearch/debug
+mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=testing-debug-epel4&arch=$basearch
 failovermethod=priority
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL
@@ -18,8 +18,8 @@ gpgcheck=1
 
 [epel-testing-source]
 name=Extra Packages for Enterprise Linux 4 - Testing - $basearch - Source
-#baseurl=http://download.fedora.redhat.com/pub/epel/testing/4/SRPMS
-mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=testing-epel4&arch=$basearch
+#baseurl=http://download.fedoraproject.org/pub/epel/testing/4/SRPMS
+mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=testing-source-epel4&arch=$basearch
 failovermethod=priority
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL
