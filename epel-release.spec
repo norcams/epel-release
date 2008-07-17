@@ -1,10 +1,10 @@
 Name:           epel-release       
 Version:        6
-Release:        0
+Release:        1
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base 
-License:        GPL 
+License:        GPLv2
 
 # This is a Red Hat maintained package which is specific to
 # our distribution.  Thus the source is only available from
@@ -66,6 +66,9 @@ sed -i '/^\#\ epel\ repo\ /d' %{_sysconfdir}/sysconfig/rhn/sources
 
 
 %changelog
+* Thu Jul 17 2008 Tom "spot" Callaway <tcallawa@redhat.com> - 6.1
+- fix license tag
+
 * Sun Mar 25 2007 Michael Stahnke <mastahnke@gmail.com> - 6-0
 - Bumped in devel to RHEL 6. (We can dream).
 
