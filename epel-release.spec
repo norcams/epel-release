@@ -1,6 +1,6 @@
 Name:           epel-release       
 Version:        6
-Release:        1
+Release:        2
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base 
@@ -66,6 +66,9 @@ sed -i '/^\#\ epel\ repo\ /d' %{_sysconfdir}/sysconfig/rhn/sources
 
 
 %changelog
+* Tue Feb 24 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 6-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_11_Mass_Rebuild
+
 * Thu Jul 17 2008 Tom "spot" Callaway <tcallawa@redhat.com> - 6.1
 - fix license tag
 
