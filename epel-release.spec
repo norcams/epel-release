@@ -1,6 +1,6 @@
 Name:           epel-release       
 Version:        6
-Release:        2
+Release:        1
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base 
@@ -10,7 +10,7 @@ License:        GPLv2
 # our distribution.  Thus the source is only available from
 # within this srpm.
 URL:            http://download.fedora.redhat.com/pub/epel
-Source0:        http://download.fedora.redhat.com/pub/epel/RPM-GPG-KEY-EPEL
+Source0:        http://download.fedora.redhat.com/pub/epel/RPM-GPG-KEY-EPEL-6
 Source1:        GPL	
 Source2:        epel.repo	
 Source3:        epel-testing.repo	
@@ -37,7 +37,7 @@ rm -rf $RPM_BUILD_ROOT
 
 #GPG Key
 install -Dpm 644 %{SOURCE0} \
-    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-EPEL
+    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
 
 # yum
 install -dm 755 $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
@@ -66,6 +66,10 @@ sed -i '/^\#\ epel\ repo\ /d' %{_sysconfdir}/sysconfig/rhn/sources
 
 
 %changelog
+* Tue Apr 27 2010 Dennis Gilmore <dennis@ausil.us> - 6-1
+- setup for EL-6 
+- new key
+
 * Tue Feb 24 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 6-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_11_Mass_Rebuild
 
