@@ -1,6 +1,6 @@
 Name:           epel-release       
 Version:        6
-Release:        1
+Release:        3
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base 
@@ -66,6 +66,9 @@ sed -i '/^\#\ epel\ repo\ /d' %{_sysconfdir}/sysconfig/rhn/sources
 
 
 %changelog
+* Fri Jul 09 2010 Dennis Gilmore <dennis@ausil.us> - 6-3
+- use metalink urls not mirrorlist ones
+
 * Tue Apr 27 2010 Dennis Gilmore <dennis@ausil.us> - 6-1
 - setup for EL-6 
 - new key
