@@ -1,6 +1,6 @@
 Name:           epel-release       
 Version:        5 
-Release:        3
+Release:        4
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base 
@@ -20,6 +20,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:     noarch
 Requires:      redhat-release >=  %{version} 
+Conflicts:     fedora-release
 
 %description
 This package contains the Extra Packages for Enterprise Linux (EPEL) repository
@@ -56,6 +57,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Tue Aug 10 2010 Seth Vidal <skvidal at fedoraproject.org> - 5-4
+- conflict fedora-release so people don't indadvertently do something silly
+
 * Fri Apr 25 2008 Matt Domsch <Matt_Domsch@dell.com> - 5-3
 - use mirrorlists in epel-testing.repo
 - use download.fedoraproject.org in (commented out) baseurls
