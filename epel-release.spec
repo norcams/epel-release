@@ -1,6 +1,6 @@
 Name:           epel-release       
 Version:        6
-Release:        3
+Release:        4
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base 
@@ -19,6 +19,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:     noarch
 Requires:      redhat-release >=  %{version} 
+Conflicts:     fedora-release
 
 %description
 This package contains the Extra Packages for Enterprise Linux (EPEL) repository
@@ -66,6 +67,9 @@ sed -i '/^\#\ epel\ repo\ /d' %{_sysconfdir}/sysconfig/rhn/sources
 
 
 %changelog
+* Wed Aug 11 2010 Seth Vidal <skvidal at fedoraproject.org> - 6-4
+- conflict fedora-release
+
 * Fri Jul 09 2010 Dennis Gilmore <dennis@ausil.us> - 6-3
 - use metalink urls not mirrorlist ones
 
