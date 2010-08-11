@@ -1,6 +1,6 @@
 Name:           epel-release       
 Version:        4 
-Release:        9
+Release:        10
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base 
@@ -22,6 +22,7 @@ BuildArch:     noarch
 Requires:      redhat-release >=  %{version} 
 Requires(postun): perl
 Requires(post): perl
+Conflicts: fedora-release
 
 %description
 This package contains the Extra Packages for Enterprise Linux (EPEL) repository
@@ -87,6 +88,9 @@ exit 0
 
 
 %changelog
+* Wed Aug 11 2010 Seth Vidal <skvidal at fedoraproject.org> - 4-10
+- conflict fedora-release
+
 * Fri Apr 25 2008 Matt Domsch <Matt_Domsch@dell.com> - 4-9
 - fix post and postun.  postun would unconditionally remove the lines
   added by post.
