@@ -49,14 +49,15 @@ install -pm 644 %{SOURCE2} %{SOURCE3}  \
 rm -rf $RPM_BUILD_ROOT
 
 %post
-echo "# epel repo -- added by epel-release " \
-    >> %{_sysconfdir}/sysconfig/rhn/sources
-echo "yum epel http://download.fedora.redhat.com/pub/epel/%{version}/\$ARCH" \
-    >> %{_sysconfdir}/sysconfig/rhn/sources
+# Not needed for el6 as sources has been removed
+#echo "# epel repo -- added by epel-release " \
+#    >> %{_sysconfdir}/sysconfig/rhn/sources
+#echo "yum epel http://download.fedora.redhat.com/pub/epel/%{version}/\$ARCH" \
+#    >> %{_sysconfdir}/sysconfig/rhn/sources
 
 %postun 
-sed -i '/^yum\ epel/d' %{_sysconfdir}/sysconfig/rhn/sources
-sed -i '/^\#\ epel\ repo\ /d' %{_sysconfdir}/sysconfig/rhn/sources
+#sed -i '/^yum\ epel/d' %{_sysconfdir}/sysconfig/rhn/sources
+#sed -i '/^\#\ epel\ repo\ /d' %{_sysconfdir}/sysconfig/rhn/sources
 
 
 %files
@@ -67,6 +68,9 @@ sed -i '/^\#\ epel\ repo\ /d' %{_sysconfdir}/sysconfig/rhn/sources
 
 
 %changelog
+* Tue Oct 12 2010 Michael Stahnke <stahnma@fedoraproject.org> - 6-5
+- Fix bug #627611
+
 * Wed Aug 11 2010 Seth Vidal <skvidal at fedoraproject.org> - 6-4
 - conflict fedora-release
 
