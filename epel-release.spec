@@ -1,6 +1,6 @@
 Name:           epel-release       
 Version:        6
-Release:        4
+Release:        5
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base 
