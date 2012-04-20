@@ -1,6 +1,6 @@
 Name:           epel-release       
 Version:        6
-Release:        5
+Release:        6
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base 
@@ -14,6 +14,7 @@ Source0:        http://download.fedora.redhat.com/pub/epel/RPM-GPG-KEY-EPEL-6
 Source1:        GPL	
 Source2:        epel.repo	
 Source3:        epel-testing.repo	
+Source4:        macros.ghc-srpm
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -45,6 +46,10 @@ install -dm 755 $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
 install -pm 644 %{SOURCE2} %{SOURCE3}  \
     $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
 
+# rpm macros for koji
+install -Dpm 644 %{SOURCE4} \
+    $RPM_BUILD_ROOT%{_sysconfdir}/rpm/macros.ghc-srpm
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -65,9 +70,13 @@ rm -rf $RPM_BUILD_ROOT
 %doc GPL
 %config(noreplace) /etc/yum.repos.d/*
 /etc/pki/rpm-gpg/*
+/etc/rpm/macros.ghc-srpm
 
 
 %changelog
+* Tue Jan 10 2012 Jens Petersen <petersen@redhat.com> - 6-6
+- add /etc/rpm/macros.ghc-srpm from fedora redhat-rpm-macros
+
 * Tue Oct 12 2010 Michael Stahnke <stahnma@fedoraproject.org> - 6-5
 - Fix bug #627611
 
