@@ -1,6 +1,6 @@
 Name:           epel-release       
 Version:        6
-Release:        6
+Release:        7
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base 
@@ -74,6 +74,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Wed May  9 2012 Jens Petersen <petersen@redhat.com> - 6-7
+- add ppc64 to ghc_arches
+
 * Tue Jan 10 2012 Jens Petersen <petersen@redhat.com> - 6-6
 - add /etc/rpm/macros.ghc-srpm from fedora redhat-rpm-macros
 
