@@ -1,6 +1,6 @@
 Name:           epel-release       
 Version:        6
-Release:        7
+Release:        8
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base 
@@ -9,8 +9,8 @@ License:        GPLv2
 # This is a Red Hat maintained package which is specific to
 # our distribution.  Thus the source is only available from
 # within this srpm.
-URL:            http://download.fedora.redhat.com/pub/epel
-Source0:        http://download.fedora.redhat.com/pub/epel/RPM-GPG-KEY-EPEL-6
+URL:            http://dl.fedoraproject.org/pub/epel/
+Source0:        http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6
 Source1:        GPL	
 Source2:        epel.repo	
 Source3:        epel-testing.repo	
@@ -74,6 +74,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun Nov 04 2012 <stahnma@fedoraproject.org> - 6-8
+- Fix URL bz #870686
+
 * Wed May  9 2012 Jens Petersen <petersen@redhat.com> - 6-7
 - add ppc64 to ghc_arches
 
