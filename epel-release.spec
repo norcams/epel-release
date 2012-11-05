@@ -1,9 +1,9 @@
-Name:           epel-release       
+Name:           epel-release
 Version:        6
 Release:        8
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
-Group:          System Environment/Base 
+Group:          System Environment/Base
 License:        GPLv2
 
 # This is a Red Hat maintained package which is specific to
@@ -11,15 +11,15 @@ License:        GPLv2
 # within this srpm.
 URL:            http://dl.fedoraproject.org/pub/epel/
 Source0:        http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6
-Source1:        GPL	
-Source2:        epel.repo	
-Source3:        epel-testing.repo	
+Source1:        GPL
+Source2:        epel.repo
+Source3:        epel-testing.repo
 Source4:        macros.ghc-srpm
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:     noarch
-Requires:      redhat-release >=  %{version} 
+Requires:      redhat-release >=  %{version}
 Conflicts:     fedora-release
 
 %description
@@ -60,7 +60,7 @@ rm -rf $RPM_BUILD_ROOT
 #echo "yum epel http://download.fedora.redhat.com/pub/epel/%{version}/\$ARCH" \
 #    >> %{_sysconfdir}/sysconfig/rhn/sources
 
-%postun 
+%postun
 #sed -i '/^yum\ epel/d' %{_sysconfdir}/sysconfig/rhn/sources
 #sed -i '/^\#\ epel\ repo\ /d' %{_sysconfdir}/sysconfig/rhn/sources
 
@@ -93,7 +93,7 @@ rm -rf $RPM_BUILD_ROOT
 - use metalink urls not mirrorlist ones
 
 * Tue Apr 27 2010 Dennis Gilmore <dennis@ausil.us> - 6-1
-- setup for EL-6 
+- setup for EL-6
 - new key
 
 * Tue Feb 24 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 6-2
@@ -115,7 +115,7 @@ rm -rf $RPM_BUILD_ROOT
 - Changed description
 
 * Mon Mar 14 2007 Michael Stahnke <mastahnke@gmail.com> - 4-2
-- Fixed up2date issues. 
+- Fixed up2date issues.
 
 * Mon Mar 12 2007 Michael Stahnke <mastahnke@gmail.com> - 4-1
 - Initial Package
