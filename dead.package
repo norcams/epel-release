@@ -1,1 +1,0 @@
-epel-release does not need to be in devel branch.  Is obviously only used for EPEL and not rawhide.
