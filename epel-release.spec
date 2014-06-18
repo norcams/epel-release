@@ -1,12 +1,12 @@
 Name:           epel-release       
 Version:        7
-Release:        0.1
+Release:        0.2
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base 
 License:        GPLv2
 
-# This is a Red Hat maintained package which is specific to
+# This is a EPEL maintained package which is specific to
 # our distribution.  Thus the source is only available from
 # within this srpm.
 URL:            http://download.fedoraproject.org/pub/epel
@@ -20,7 +20,7 @@ Requires:      redhat-release >=  %{version}
 
 %description
 This package contains the Extra Packages for Enterprise Linux (EPEL) repository
-GPG key as well as configuration for yum and up2date.
+GPG key as well as configuration for yum.
 
 %prep
 %setup -q  -c -T
@@ -45,17 +45,6 @@ install -pm 644 %{SOURCE2} %{SOURCE3}  \
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post
-echo "# epel repo -- added by epel-release " \
-    >> %{_sysconfdir}/sysconfig/rhn/sources
-echo "yum epel http://download.fedoraproject.org/pub/epel/%{version}/\$ARCH" \
-    >> %{_sysconfdir}/sysconfig/rhn/sources
-
-%postun 
-sed -i '/^yum\ epel/d' %{_sysconfdir}/sysconfig/rhn/sources
-sed -i '/^\#\ epel\ repo\ /d' %{_sysconfdir}/sysconfig/rhn/sources
-
-
 %files
 %defattr(-,root,root,-)
 %doc GPL
@@ -64,6 +53,11 @@ sed -i '/^\#\ epel\ repo\ /d' %{_sysconfdir}/sysconfig/rhn/sources
 
 
 %changelog
+* Wed Jun 18 2014 Kevin Fenzi <kevin@scrye.com> 7-0.2
+- Drop unneeded up2date post/postun
+- Fixed up description.
+- Fixes bugs #1052434 and #1093918
+
 * Mon Dec 16 2013 Dennis Gilmore <dennis@ausil.us> - 7-0.1
 - initial epel 7 build. gpg cheking is disabled 
 
