@@ -1,6 +1,6 @@
 Name:           epel-release       
 Version:        7
-Release:        0.2
+Release:        1
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base 
@@ -53,6 +53,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Aug 28 2014 Dennis Gilmore <dennis@ausil.us> - 7-1
+- enable gpg checking now we are out of beta
+
 * Wed Jun 18 2014 Kevin Fenzi <kevin@scrye.com> 7-0.2
 - Drop unneeded up2date post/postun
 - Fixed up description.
