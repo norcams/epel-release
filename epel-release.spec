@@ -1,6 +1,6 @@
 Name:           epel-release       
 Version:        7
-Release:        1
+Release:        2
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base 
@@ -48,11 +48,14 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %doc GPL
-%config /etc/yum.repos.d/*
+%config(noreplace) /etc/yum.repos.d/*
 /etc/pki/rpm-gpg/*
 
 
 %changelog
+* Tue Sep 02 2014 Kevin Fenzi <kevin@scrye.com> 7-2
+- Make repo files config(noreplace). Fixes bug #1135576
+
 * Thu Aug 28 2014 Dennis Gilmore <dennis@ausil.us> - 7-1
 - enable gpg checking now we are out of beta
 
