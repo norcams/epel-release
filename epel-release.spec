@@ -1,9 +1,9 @@
-Name:           epel-release       
+Name:           epel-release
 Version:        7
 Release:        2
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
-Group:          System Environment/Base 
+Group:          System Environment/Base
 License:        GPLv2
 
 # This is a EPEL maintained package which is specific to
@@ -11,12 +11,12 @@ License:        GPLv2
 # within this srpm.
 URL:            http://download.fedoraproject.org/pub/epel
 Source0:        http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
-Source1:        GPL	
-Source2:        epel.repo	
-Source3:        epel-testing.repo	
+Source1:        GPL
+Source2:        epel.repo
+Source3:        epel-testing.repo
 
 BuildArch:     noarch
-Requires:      redhat-release >=  %{version} 
+Requires:      redhat-release >=  %{version}
 
 %description
 This package contains the Extra Packages for Enterprise Linux (EPEL) repository
