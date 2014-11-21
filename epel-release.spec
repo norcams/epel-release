@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        7
-Release:        2
+Release:        3
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -14,6 +14,7 @@ Source0:        http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
 Source1:        GPL
 Source2:        epel.repo
 Source3:        epel-testing.repo
+Source4:        macros.epel
 
 BuildArch:     noarch
 Requires:      redhat-release >=  %{version}
@@ -41,6 +42,7 @@ install -Dpm 644 %{SOURCE0} \
 install -dm 755 $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
 install -pm 644 %{SOURCE2} %{SOURCE3}  \
     $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
+install -pm 644 -D %{SOURCE4} $RPM_BUILD_ROOT/usr/lib/rpm/macros.d/macros.epel
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -50,9 +52,12 @@ rm -rf $RPM_BUILD_ROOT
 %doc GPL
 %config(noreplace) /etc/yum.repos.d/*
 /etc/pki/rpm-gpg/*
-
+/usr/lib/rpm/macros.d/macros.epel
 
 %changelog
+* Fri Nov 21 2014 Rex Dieter <rdieter@fedoraproject.org> 7-3
+- implement %%epel macro
+
 * Tue Sep 02 2014 Kevin Fenzi <kevin@scrye.com> 7-2
 - Make repo files config(noreplace). Fixes bug #1135576
 
