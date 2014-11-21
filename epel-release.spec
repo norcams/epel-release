@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        7
-Release:        3
+Release:        4
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -15,6 +15,8 @@ Source1:        GPL
 Source2:        epel.repo
 Source3:        epel-testing.repo
 Source4:        macros.epel
+# EPEL default preset policy (borrowed from fedora's 90-default.preset)
+Source5:        90-epel.preset
 
 BuildArch:     noarch
 Requires:      redhat-release >=  %{version}
@@ -43,6 +45,7 @@ install -dm 755 $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
 install -pm 644 %{SOURCE2} %{SOURCE3}  \
     $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
 install -pm 644 -D %{SOURCE4} $RPM_BUILD_ROOT/usr/lib/rpm/macros.d/macros.epel
+install -pm 644 -D %{SOURCE5} $RPM_BUILD_ROOT%{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -53,8 +56,12 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) /etc/yum.repos.d/*
 /etc/pki/rpm-gpg/*
 /usr/lib/rpm/macros.d/macros.epel
+%{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
+* Fri Nov 21 2014 Rex Dieter <rdieter@fedoraproject.org> 7-4
+- add systemd 90-epel.preset
+
 * Fri Nov 21 2014 Rex Dieter <rdieter@fedoraproject.org> 7-3
 - implement %%epel macro
 
