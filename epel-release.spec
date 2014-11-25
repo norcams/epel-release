@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        7
-Release:        4
+Release:        5
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -59,6 +59,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
+* Tue Nov 25 2014 Rex Dieter <rdieter@fedoraproject.org> 7-5
+- fix typo in macros.epel
+
 * Fri Nov 21 2014 Rex Dieter <rdieter@fedoraproject.org> 7-4
 - add systemd 90-epel.preset
 
