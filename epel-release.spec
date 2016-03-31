@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        7
-Release:        5
+Release:        6
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -14,7 +14,6 @@ Source0:        http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
 Source1:        GPL
 Source2:        epel.repo
 Source3:        epel-testing.repo
-Source4:        macros.epel
 # EPEL default preset policy (borrowed from fedora's 90-default.preset)
 Source5:        90-epel.preset
 
@@ -44,7 +43,6 @@ install -Dpm 644 %{SOURCE0} \
 install -dm 755 $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
 install -pm 644 %{SOURCE2} %{SOURCE3}  \
     $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
-install -pm 644 -D %{SOURCE4} $RPM_BUILD_ROOT/usr/lib/rpm/macros.d/macros.epel
 install -pm 644 -D %{SOURCE5} $RPM_BUILD_ROOT%{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %clean
@@ -59,6 +57,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
+* Wed Mar 30 2016 Jason L Tibbitts III <tibbs@math.uh.edu> - 7-6
+- Remove macros.epel; let epel-rpm-macros handle it instead.
+
 * Tue Nov 25 2014 Rex Dieter <rdieter@fedoraproject.org> 7-5
 - fix typo in macros.epel
 
@@ -80,5 +81,5 @@ rm -rf $RPM_BUILD_ROOT
 - Fixes bugs #1052434 and #1093918
 
 * Mon Dec 16 2013 Dennis Gilmore <dennis@ausil.us> - 7-0.1
-- initial epel 7 build. gpg cheking is disabled 
+- initial epel 7 build. gpg cheking is disabled
 
