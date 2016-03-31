@@ -15,7 +15,7 @@ Source1:        GPL
 Source2:        epel.repo
 Source3:        epel-testing.repo
 # EPEL default preset policy (borrowed from fedora's 90-default.preset)
-Source5:        90-epel.preset
+Source4:        90-epel.preset
 
 BuildArch:     noarch
 Requires:      redhat-release >=  %{version}
@@ -43,7 +43,7 @@ install -Dpm 644 %{SOURCE0} \
 install -dm 755 $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
 install -pm 644 %{SOURCE2} %{SOURCE3}  \
     $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
-install -pm 644 -D %{SOURCE5} $RPM_BUILD_ROOT%{_prefix}/lib/systemd/system-preset/90-epel.preset
+install -pm 644 -D %{SOURCE4} $RPM_BUILD_ROOT%{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %clean
 rm -rf $RPM_BUILD_ROOT
