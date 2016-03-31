@@ -53,7 +53,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc GPL
 %config(noreplace) /etc/yum.repos.d/*
 /etc/pki/rpm-gpg/*
-/usr/lib/rpm/macros.d/macros.epel
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
