@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        7
-Release:        6
+Release:        7
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -56,6 +56,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
+* Fri Jun 03 2016 Kevin Fenzi <kevin@scrye.com> - 7-7
+- Drop initial-setup from presets. Fixes bug #1342511
+
 * Wed Mar 30 2016 Jason L Tibbitts III <tibbs@math.uh.edu> - 7-6
 - Remove macros.epel; let epel-rpm-macros handle it instead.
 
