@@ -34,7 +34,6 @@ enable ladvd.service
 
 # Storage
 enable multipathd.service
-enable libstoragemgmt.service
 enable lvm2-monitor.*
 enable lvm2-lvmetad.*
 enable dm-event.*
