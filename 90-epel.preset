@@ -113,3 +113,7 @@ enable upower.service
 enable udisks2.service
 enable polkit.service
 enable packagekit-offline-update.service
+
+# Support for the DRBD link-cleaning service
+# https://bugzilla.redhat.com/show_bug.cgi?id=1405744
+enable drbdlinksclean.service

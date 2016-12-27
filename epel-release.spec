@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        7
-Release:        8
+Release:        9
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -56,6 +56,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
+* Tue Dec 27 2016 Kevin Fenzi <kevin@scrye.com> - 7-9
+- Add preset for drbdlinks package. Fixes bug #1405744
+
 * Sat Jul 23 2016 Kevin Fenzi <kevin@scrye.com> - 7-8
 - Drop duplicate libstoragemgmt from presets. Fixes bug #1358971
 
