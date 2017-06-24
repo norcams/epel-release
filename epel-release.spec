@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        7
-Release:        9
+Release:        10
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -56,6 +56,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
+* Sat Jun 24 2017 Kevin Fenzi <kevin@scrye.com> - 7-10
+- Change mirrorlist= in repo files to be metalink= (as thats what they are). Fixes bug #1451212
+
 * Tue Dec 27 2016 Kevin Fenzi <kevin@scrye.com> - 7-9
 - Add preset for drbdlinks package. Fixes bug #1405744
 
