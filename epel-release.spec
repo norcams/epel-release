@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        7
-Release:        10
+Release:        11
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -19,6 +19,8 @@ Source4:        90-epel.preset
 
 BuildArch:     noarch
 Requires:      redhat-release >=  %{version}
+# epel-release is only for enterprise linux, not fedora
+Conflicts:     fedora-release
 
 %description
 This package contains the Extra Packages for Enterprise Linux (EPEL) repository
@@ -56,6 +58,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
+* Mon Oct 02 2017 Kevin Fenzi <kevin@scrye.com> - 7-11
+- Add Conflicts on fedora-release to prevent people from installing on Fedora systems. Fixes bug #1497702
+
 * Sat Jun 24 2017 Kevin Fenzi <kevin@scrye.com> - 7-10
 - Change mirrorlist= in repo files to be metalink= (as thats what they are). Fixes bug #1451212
 
