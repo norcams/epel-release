@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        6
-Release:        9
+Release:        10
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -21,7 +21,6 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:     noarch
 Requires:      redhat-release >= %{version}
 Conflicts:     fedora-release
-Conflicts:     redhat-release >= 7
 
 %description
 This package contains the Extra Packages for Enterprise Linux (EPEL) repository
@@ -75,6 +74,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Tue Nov 13 2018 Kevin Fenzi <kevin@scrye.com> - 6-10
+- Revert previous commit, as it won't work.
+
 * Sun Nov 11 2018 Kevin Fenzi <kevin@scrye.com> - 6-9
 - Add Conflicts on redhat-release => 7 to avoid people installing on EL7
 - Fixes bug #1645568
