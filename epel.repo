@@ -1,0 +1,35 @@
+[epel]
+name=Extra Packages for Enterprise Linux $release - $basearch
+#baseurl=http://download.fedoraproject.org/pub/epel/$release/$basearch
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-$release&arch=$basearch&infra=$infra&content=$contentdir
+failovermethod=priority
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$release
+
+[epel-modules]
+name=Extra Packages for Enterprise Linux $release - $basearch
+#baseurl=http://download.fedoraproject.org/pub/epel/$release/$basearch
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-$release&arch=$basearch&infra=$infra&content=$contentdir
+failovermethod=priority
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$release
+
+[epel-debuginfo]
+name=Extra Packages for Enterprise Linux $release - $basearch - Debug
+#baseurl=http://download.fedoraproject.org/pub/epel/$release/$basearch/debug
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-$release&arch=$basearch&infra=$infra&content=$contentdir
+failovermethod=priority
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$release
+gpgcheck=1
+
+[epel-source]
+name=Extra Packages for Enterprise Linux $release - $basearch - Source
+#baseurl=http://download.fedoraproject.org/pub/epel/$release/SRPMS
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-source-$release&arch=$basearch&infra=$infra&content=$contentdir
+failovermethod=priority
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$release
+gpgcheck=1
