@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        8
-Release:        1
+Release:        2.el8.playground
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -59,6 +59,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
+* Sat Jul 20 2019 Stephen Smoogen <smooge@fedora00.int.smoogespace.com> - 8-2.el8.playground
+- Because we need a disttag (they arent repotags people)
+
 * Thu Jul 18 2019 Stephen Smoogen <smooge@smoogen-laptop.localdomain> - 8-1
 - Update for RHEL-8
 - Add playground repo data
