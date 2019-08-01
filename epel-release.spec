@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        8
-Release:        4
+Release:        4%{dist}
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
