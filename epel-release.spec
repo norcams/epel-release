@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        8
-Release:        3%{dist}
+Release:        4%{dist}
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -56,12 +56,17 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %doc GPL README-epel-8-packaging.md
-
 %config(noreplace) /etc/yum.repos.d/*
 /etc/pki/rpm-gpg/*
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
+* Thu Aug  1 2019 Pablo Greco <pgreco@centosproject.org> - 8-4
+- Use the correct var for dnf to expand
+- Update playground source url
+- Remove epel-modules repo
+- Use https in baseurl
+
 * Thu Aug  1 2019 Stephen Smoogen <smooge@fedoraproject.org> - 8-3
 - Make sure that the key name is named correctly
 
