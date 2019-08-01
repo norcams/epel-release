@@ -32,6 +32,7 @@ GPG key as well as configuration for yum.
 %setup -q  -c -T
 install -pm 644 %{SOURCE0} .
 install -pm 644 %{SOURCE1} .
+install -pm 644 %{SOURCE6} .
 
 %build
 
@@ -54,7 +55,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%doc GPL %{SOURCE6}
+%doc GPL README-epel-8-packaging.md
 %config(noreplace) /etc/yum.repos.d/*
 /etc/pki/rpm-gpg/*
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
@@ -63,6 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 * Thu Aug  1 2019 Stephen Smoogen <smooge@fedoraproject.org> - 8-2
 - Make baseurl paths match dl.fedoraproject.org
 - Add draft of epel8 packaging
+- Fix docs
 
 * Thu Jul 18 2019 Stephen Smoogen <smooge@smoogen-laptop.localdomain> - 8-1
 - Update for RHEL-8
