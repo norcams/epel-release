@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        8
-Release:        2
+Release:        3
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -42,7 +42,7 @@ rm -rf $RPM_BUILD_ROOT
 
 #GPG Key
 install -Dpm 644 %{SOURCE0} \
-    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-EPEL-%{version}
 
 # yum
 install -dm 755 $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
@@ -61,6 +61,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
+* Thu Aug  1 2019 Stephen Smoogen <smooge@fedoraproject.org> - 8-3
+- Make sure that the key name is named correctly
+
 * Thu Aug  1 2019 Stephen Smoogen <smooge@fedoraproject.org> - 8-2
 - Make baseurl paths match dl.fedoraproject.org
 - Add draft of epel8 packaging
