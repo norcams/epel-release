@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        8
-Release:        2%dist}
+Release:        3%{dist}
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -32,6 +32,7 @@ GPG key as well as configuration for yum.
 %setup -q  -c -T
 install -pm 644 %{SOURCE0} .
 install -pm 644 %{SOURCE1} .
+install -pm 644 %{SOURCE6} .
 
 %build
 
@@ -41,7 +42,7 @@ rm -rf $RPM_BUILD_ROOT
 
 #GPG Key
 install -Dpm 644 %{SOURCE0} \
-    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-EPEL-%{version}
 
 # yum
 install -dm 755 $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
@@ -54,12 +55,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%doc GPL %{SOURCE6}
+%doc GPL README-epel-8-packaging.md
+
 %config(noreplace) /etc/yum.repos.d/*
 /etc/pki/rpm-gpg/*
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
+* Thu Aug  1 2019 Stephen Smoogen <smooge@fedoraproject.org> - 8-3
+- Make sure that the key name is named correctly
 
 * Thu Aug  1 2019 Stephen Smoogen <smooge@fedoraproject.org> - 8-2
 - Make baseurl paths match dl.fedoraproject.org
@@ -67,6 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 
 * Sat Jul 20 2019 Stephen Smoogen <smooge@fedora00.int.smoogespace.com> - 8-2.el8.playground
 - Because we need a disttag (they arent repotags people)
+- Fix docs
 
 * Thu Jul 18 2019 Stephen Smoogen <smooge@smoogen-laptop.localdomain> - 8-1
 - Update for RHEL-8
