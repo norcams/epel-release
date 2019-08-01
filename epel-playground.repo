@@ -18,7 +18,7 @@ gpgcheck=1
 
 [epel-playground-source]
 name=Extra Packages for Enterprise Linux $releasever - Playground - $basearch - Source
-#baseurl=http://download.fedoraproject.org/pub/epel/playground/$releasever/Everything/SRPMS
+#baseurl=http://download.fedoraproject.org/pub/epel/playground/$releasever/Everything/source/tree/
 metalink=https://mirrors.fedoraproject.org/metalink?repo=playground-source-epel$release&arch=$basearch&infra=$infra&content=$contentdir
 failovermethod=priority
 enabled=0
