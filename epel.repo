@@ -1,35 +1,35 @@
 [epel]
-name=Extra Packages for Enterprise Linux $release - $basearch
-#baseurl=http://download.fedoraproject.org/pub/epel/$release/Everything/$basearch
-metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-$release&arch=$basearch&infra=$infra&content=$contentdir
+name=Extra Packages for Enterprise Linux $releasever - $basearch
+#baseurl=http://download.fedoraproject.org/pub/epel/$releasever/Everything/$basearch
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-$releasever&arch=$basearch&infra=$infra&content=$contentdir
 failovermethod=priority
 enabled=1
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$release
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$releasever
 
 [epel-modules]
-name=Extra Packages for Enterprise Linux $release - $basearch
-#baseurl=http://download.fedoraproject.org/pub/epel/$release/Everything/$basearch
-metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-$release&arch=$basearch&infra=$infra&content=$contentdir
+name=Extra Packages for Enterprise Linux $releasever - $basearch
+#baseurl=http://download.fedoraproject.org/pub/epel/$releasever/Everything/$basearch
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-$releasever&arch=$basearch&infra=$infra&content=$contentdir
 failovermethod=priority
 enabled=0
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$release
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$releasever
 
 [epel-debuginfo]
-name=Extra Packages for Enterprise Linux $release - $basearch - Debug
-#baseurl=http://download.fedoraproject.org/pub/epel/$release/Everything/$basearch/debug
-metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-$release&arch=$basearch&infra=$infra&content=$contentdir
+name=Extra Packages for Enterprise Linux $releasever - $basearch - Debug
+#baseurl=http://download.fedoraproject.org/pub/epel/$releasever/Everything/$basearch/debug
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-$releasever&arch=$basearch&infra=$infra&content=$contentdir
 failovermethod=priority
 enabled=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$release
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$releasever
 gpgcheck=1
 
 [epel-source]
-name=Extra Packages for Enterprise Linux $release - $basearch - Source
-#baseurl=http://download.fedoraproject.org/pub/epel/$release/Everything/SRPMS
-metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-source-$release&arch=$basearch&infra=$infra&content=$contentdir
+name=Extra Packages for Enterprise Linux $releasever - $basearch - Source
+#baseurl=http://download.fedoraproject.org/pub/epel/$releasever/Everything/SRPMS
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-source-$releasever&arch=$basearch&infra=$infra&content=$contentdir
 failovermethod=priority
 enabled=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$release
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$releasever
 gpgcheck=1

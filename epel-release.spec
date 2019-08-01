@@ -61,6 +61,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
+* Thu Aug  1 2019 Pablo Greco <pgreco@centosproject.org>
+- Use the correct var for dnf to expand
+
 * Thu Aug  1 2019 Stephen Smoogen <smooge@fedoraproject.org> - 8-3
 - Make sure that the key name is named correctly
 
