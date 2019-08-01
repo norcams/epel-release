@@ -1,6 +1,6 @@
 [epel-playground]
 name=Extra Packages for Enterprise Linux $release - Playground - $basearch
-#baseurl=http://download.fedoraproject.org/pub/epel/playground/$release/$basearch
+#baseurl=http://download.fedoraproject.org/pub/epel/playground/$release/Everything/$basearch
 metalink=https://mirrors.fedoraproject.org/metalink?repo=playground-epel$release&arch=$basearch&infra=$infra&content=$contentdir
 failovermethod=priority
 enabled=0
@@ -9,7 +9,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$release
 
 [epel-playground-debuginfo]
 name=Extra Packages for Enterprise Linux $release - Playground - $basearch - Debug
-#baseurl=http://download.fedoraproject.org/pub/epel/playground/$release/$basearch/debug
+#baseurl=http://download.fedoraproject.org/pub/epel/playground/$release/Everything/$basearch/debug
 metalink=https://mirrors.fedoraproject.org/metalink?repo=playground-debug-epel$release&arch=$basearch&infra=$infra&content=$contentdir
 failovermethod=priority
 enabled=0
@@ -18,7 +18,7 @@ gpgcheck=1
 
 [epel-playground-source]
 name=Extra Packages for Enterprise Linux $release - Playground - $basearch - Source
-#baseurl=http://download.fedoraproject.org/pub/epel/playground/$release/SRPMS
+#baseurl=http://download.fedoraproject.org/pub/epel/playground/$release/Everything/SRPMS
 metalink=https://mirrors.fedoraproject.org/metalink?repo=playground-source-epel$release&arch=$basearch&infra=$infra&content=$contentdir
 failovermethod=priority
 enabled=0

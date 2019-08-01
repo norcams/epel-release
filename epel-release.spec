@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        8
-Release:        1
+Release:        2
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -17,6 +17,7 @@ Source3:        epel-testing.repo
 Source4:	epel-playground.repo
 # EPEL default preset policy (borrowed from fedora's 90-default.preset)
 Source5:        90-epel.preset
+Source6:        README-epel-8-packaging.md
 
 BuildArch:     noarch
 Requires:      redhat-release >=  %{version}
@@ -53,12 +54,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%doc GPL
+%doc GPL %{SOURCE6}
 %config(noreplace) /etc/yum.repos.d/*
 /etc/pki/rpm-gpg/*
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
+* Thu Aug  1 2019 Stephen Smoogen <smooge@fedoraproject.org> - 8-2
+- Make baseurl paths match dl.fedoraproject.org
+- Add draft of epel8 packaging
+
 * Thu Jul 18 2019 Stephen Smoogen <smooge@smoogen-laptop.localdomain> - 8-1
 - Update for RHEL-8
 - Add playground repo data
