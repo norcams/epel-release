@@ -1,6 +1,6 @@
 [epel-testing]
 name=Extra Packages for Enterprise Linux $releasever - Testing - $basearch
-#baseurl=http://download.fedoraproject.org/pub/epel/testing/$releasever/Everything/$basearch
+#baseurl=https://download.fedoraproject.org/pub/epel/testing/$releasever/Everything/$basearch
 metalink=https://mirrors.fedoraproject.org/metalink?repo=testing-epel$releasever&arch=$basearch&infra=$infra&content=$contentdir
 failovermethod=priority
 enabled=0
@@ -9,7 +9,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$releasever
 
 [epel-testing-debuginfo]
 name=Extra Packages for Enterprise Linux $releasever - Testing - $basearch - Debug
-#baseurl=http://download.fedoraproject.org/pub/epel/testing/$releasever/Everything/$basearch/debug
+#baseurl=https://download.fedoraproject.org/pub/epel/testing/$releasever/Everything/$basearch/debug
 metalink=https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel$releasever&arch=$basearch&infra=$infra&content=$contentdir
 failovermethod=priority
 enabled=0
@@ -18,7 +18,7 @@ gpgcheck=1
 
 [epel-testing-source]
 name=Extra Packages for Enterprise Linux $releasever - Testing - $basearch - Source
-#baseurl=http://download.fedoraproject.org/pub/epel/testing/$releasever/Everything/SRPMS
+#baseurl=https://download.fedoraproject.org/pub/epel/testing/$releasever/Everything/SRPMS
 metalink=https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel$releasever&arch=$basearch&infra=$infra&content=$contentdir
 failovermethod=priority
 enabled=0
