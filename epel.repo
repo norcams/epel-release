@@ -7,15 +7,6 @@ enabled=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$releasever
 
-[epel-modules]
-name=Extra Packages for Enterprise Linux $releasever - $basearch
-#baseurl=http://download.fedoraproject.org/pub/epel/$releasever/Everything/$basearch
-metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-$releasever&arch=$basearch&infra=$infra&content=$contentdir
-failovermethod=priority
-enabled=0
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$releasever
-
 [epel-debuginfo]
 name=Extra Packages for Enterprise Linux $releasever - $basearch - Debug
 #baseurl=http://download.fedoraproject.org/pub/epel/$releasever/Everything/$basearch/debug

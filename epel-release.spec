@@ -64,6 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 * Thu Aug  1 2019 Pablo Greco <pgreco@centosproject.org>
 - Use the correct var for dnf to expand
 - Update playground source url
+- Remove epel-modules repo
 
 * Thu Aug  1 2019 Stephen Smoogen <smooge@fedoraproject.org> - 8-3
 - Make sure that the key name is named correctly
