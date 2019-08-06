@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        8
-Release:        4%{dist}
+Release:        5%{dist}
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -61,6 +61,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
+* Tue Aug  6 2019 Stephen Smoogen <smooge@fedoraproject.org> - 8-5%{dist}
+- Fix playground release to have os/ on its name [Kevin Fenzi]
+- Make sure all values of $release are $releasever
+
+
 * Thu Aug  1 2019 Pablo Greco <pgreco@centosproject.org> - 8-4
 - Use the correct var for dnf to expand
 - Update playground source url
