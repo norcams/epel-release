@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        7
-Release:        11
+Release:        12
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -58,6 +58,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
+* Mon Sep 16 2019 Stephen Smoogen <smooge@fedoraproject.org> - 7-12
+- Add in &infra and content variables to better understand users of EPEL.
+
 * Mon Oct 02 2017 Kevin Fenzi <kevin@scrye.com> - 7-11
 - Add Conflicts on fedora-release to prevent people from installing on Fedora systems. Fixes bug #1497702
 
