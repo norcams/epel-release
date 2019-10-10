@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        8
-Release:        6%{dist}
+Release:        7%{dist}
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -61,6 +61,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
+* Thu Oct 10 2019 Stephen Smoogen <smooge@fedoraproject.org> - 8-7%{dist}
+- Fix BZ#1760182 and remove failovermethod
+
 * Mon Sep 16 2019 Stephen Smoogen <smooge@fedoraproject.org> - 8-6%{dist}
 - Change gpg key to use -8 versus -$releasever. This fixes bash problem
 
