@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        8
-Release:        7%{dist}
+Release:        8%{dist}
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -61,6 +61,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
+* Mon Oct 28 2019 Stephen Smoogen <smooge@fedoraproject.org> - 8-8%{dist}
+- Really remove failovermethod. [Make sure to do git reset in the right repo next time]
+
 * Thu Oct 10 2019 Stephen Smoogen <smooge@fedoraproject.org> - 8-7%{dist}
 - Fix BZ#1760182 and remove failovermethod
 
