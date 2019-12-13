@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        8
-Release:        7%{dist}
+Release:        8%{dist}
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -14,10 +14,13 @@ Source0:        http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-8
 Source1:        GPL
 Source2:        epel.repo
 Source3:        epel-testing.repo
-Source4:	epel-playground.repo
+Source4:        epel-playground.repo
 # EPEL default preset policy (borrowed from fedora's 90-default.preset)
 Source5:        90-epel.preset
 Source6:        README-epel-8-packaging.md
+
+Source100:      epel-modular.repo
+Source101:      epel-testing-modular.repo
 
 BuildArch:     noarch
 Requires:      redhat-release >=  %{version}
@@ -46,7 +49,7 @@ install -Dpm 644 %{SOURCE0} \
 
 # yum
 install -dm 755 $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
-install -pm 644 %{SOURCE2} %{SOURCE3} %{SOURCE4} \
+install -pm 644 %{SOURCE2} %{SOURCE3} %{SOURCE4} %{SOURCE100} %{SOURCE101} \
     $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
 install -pm 644 -D %{SOURCE5} $RPM_BUILD_ROOT%{_prefix}/lib/systemd/system-preset/90-epel.preset
 
@@ -61,6 +64,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
+* Fri Dec 13 2019 Merlin Mathesius <mmathesi@redhat.com> - 8-8%{dist}
+- Add modular repos.
+
 * Thu Oct 10 2019 Stephen Smoogen <smooge@fedoraproject.org> - 8-7%{dist}
 - Remove failovermethod from EPEL8 tree. It is no longer needed.
 
