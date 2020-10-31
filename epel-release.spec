@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        8
-Release:        8%{dist}
+Release:        9%{dist}
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -64,6 +64,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
+* Sat Oct 31 2020 Kevin Fenzi <kevin@scrye.com> - 8-9
+- Add countme feature for epel. Fixes bug #1825984
+
 * Fri Dec 13 2019 Merlin Mathesius <mmathesi@redhat.com> - 8-8%{dist}
 - Add modular repos.
 
