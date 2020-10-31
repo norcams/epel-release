@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        7
-Release:        12
+Release:        13
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -58,6 +58,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
+* Sat Oct 31 2020 Kevin Fenzi <kevin@scrye.com> - 7-13
+- Add preset for x2gocleansessions. Fixes bug #1141609
+
 * Mon Sep 16 2019 Stephen Smoogen <smooge@fedoraproject.org> - 7-12
 - Add in &infra and content variables to better understand users of EPEL.
 
