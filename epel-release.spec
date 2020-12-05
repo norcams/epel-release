@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        8
-Release:        9%{dist}
+Release:        10%{dist}
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -64,6 +64,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
+* Sat Dec 05 2020 Kevin Fenzi <kevin@scrye.com> - 8-10
+- Add x509watch.timer enabled by default. Fixes bug #1901721
+
 * Sat Oct 31 2020 Kevin Fenzi <kevin@scrye.com> - 8-9
 - Add countme feature for epel. Fixes bug #1825984
 

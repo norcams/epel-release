@@ -1,3 +1,5 @@
 # Also see:
 # https://fedoraproject.org/wiki/Starting_services_by_default
-
+#
+# https://bugzilla.redhat.com/show_bug.cgi?id=1901721
+enable x509watch.timer
