@@ -41,20 +41,20 @@ install -pm 644 %{SOURCE6} .
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 #GPG Key
 install -Dpm 644 %{SOURCE0} \
-    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-EPEL-%{version}
+    %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-EPEL-%{version}
 
 # yum
-install -dm 755 $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
+install -dm 755 %{buildroot}%{_sysconfdir}/yum.repos.d
 install -pm 644 %{SOURCE2} %{SOURCE3} %{SOURCE4} %{SOURCE100} %{SOURCE101} \
-    $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
-install -pm 644 -D %{SOURCE5} $RPM_BUILD_ROOT%{_prefix}/lib/systemd/system-preset/90-epel.preset
+    %{buildroot}%{_sysconfdir}/yum.repos.d
+install -pm 644 -D %{SOURCE5} %{buildroot}%{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
