@@ -52,7 +52,8 @@ install -pm 644 -D %{SOURCE5} %{buildroot}%{_prefix}/lib/systemd/system-preset/9
 
 
 %files
-%doc GPL README-epel-8-packaging.md
+%doc README-epel-8-packaging.md
+%license GPL
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 %{_sysconfdir}/pki/rpm-gpg/*
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
