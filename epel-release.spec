@@ -3,7 +3,6 @@ Version:        8
 Release:        10%{dist}
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
-Group:          System Environment/Base
 License:        GPLv2
 
 # This is a EPEL maintained package which is specific to
@@ -41,8 +40,6 @@ install -pm 644 %{SOURCE6} .
 
 
 %install
-rm -rf %{buildroot}
-
 #GPG Key
 install -Dpm 644 %{SOURCE0} \
     %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-EPEL-%{version}
@@ -53,11 +50,8 @@ install -pm 644 %{SOURCE2} %{SOURCE3} %{SOURCE4} %{SOURCE100} %{SOURCE101} \
     %{buildroot}%{_sysconfdir}/yum.repos.d
 install -pm 644 -D %{SOURCE5} %{buildroot}%{_prefix}/lib/systemd/system-preset/90-epel.preset
 
-%clean
-rm -rf %{buildroot}
 
 %files
-%defattr(-,root,root,-)
 %doc GPL README-epel-8-packaging.md
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 %{_sysconfdir}/pki/rpm-gpg/*
