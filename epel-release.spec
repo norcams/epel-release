@@ -59,8 +59,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %doc GPL README-epel-8-packaging.md
-%config(noreplace) /etc/yum.repos.d/*
-/etc/pki/rpm-gpg/*
+%config(noreplace) %{_sysconfdir}/yum.repos.d/*
+%{_sysconfdir}/pki/rpm-gpg/*
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
