@@ -1,6 +1,8 @@
 [epel-modular]
 name=Extra Packages for Enterprise Linux Modular $releasever - $basearch
-#baseurl=https://download.fedoraproject.org/pub/epel/$releasever/Modular/$basearch
+# It is much more secure to use the metalink, but if you wish to use a local mirror
+# place it's address here.
+#baseurl=https://download.example/pub/epel/$releasever/Modular/$basearch
 metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-modular-$releasever&arch=$basearch&infra=$infra&content=$contentdir
 enabled=1
 gpgcheck=1
@@ -9,7 +11,9 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8
 
 [epel-modular-debuginfo]
 name=Extra Packages for Enterprise Linux Modular $releasever - $basearch - Debug
-#baseurl=https://download.fedoraproject.org/pub/epel/$releasever/Modular/$basearch/debug
+# It is much more secure to use the metalink, but if you wish to use a local mirror
+# place it's address here.
+#baseurl=https://download.example/pub/epel/$releasever/Modular/$basearch/debug
 metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-modular-debug-$releasever&arch=$basearch&infra=$infra&content=$contentdir
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8
@@ -17,7 +21,9 @@ gpgcheck=1
 
 [epel-modular-source]
 name=Extra Packages for Enterprise Linux Modular $releasever - $basearch - Source
-#baseurl=https://download.fedoraproject.org/pub/epel/$releasever/Modular/SRPMS
+# It is much more secure to use the metalink, but if you wish to use a local mirror
+# place it's address here.
+#baseurl=https://download.example/pub/epel/$releasever/Modular/SRPMS
 metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-modular-source-$releasever&arch=$basearch&infra=$infra&content=$contentdir
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8
