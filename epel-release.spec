@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        8
-Release:        10%{dist}
+Release:        11%{dist}
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 License:        GPLv2
@@ -11,32 +11,45 @@ License:        GPLv2
 URL:            http://download.fedoraproject.org/pub/epel
 Source0:        http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-8
 Source1:        GPL
-Source2:        epel.repo
-Source3:        epel-testing.repo
-Source4:        epel-playground.repo
+Source2:        README-epel-8-packaging.md
 # EPEL default preset policy (borrowed from fedora's 90-default.preset)
-Source5:        90-epel.preset
-Source6:        README-epel-8-packaging.md
+Source3:        90-epel.preset
 
-Source100:      epel-modular.repo
-Source101:      epel-testing-modular.repo
+
+Source100:      epel.repo
+Source101:      epel-testing.repo
+Source102:      epel-next.repo
+Source103:      epel-next-testing.repo
+Source104:      epel-playground.repo
+Source105:      epel-modular.repo
+Source106:      epel-testing-modular.repo
 
 BuildArch:     noarch
 Requires:      redhat-release >=  %{version}
 # epel-release is only for enterprise linux, not fedora
 Conflicts:     fedora-release
+Recommends:    (epel-next-release if centos-stream-release)
+
 
 %description
 This package contains the Extra Packages for Enterprise Linux (EPEL) repository
 GPG key as well as configuration for yum.
 
+
+%package -n epel-next-release
+Summary:        Extra Packages for Enterprise Linux Next repository configuration
+Requires:       %{name} = %{version}-%{release}
+
+
+%description -n epel-next-release
+This package contains the Extra Packages for Enterprise Linux (EPEL) Next
+configuration for yum.
+
+
 %prep
 %setup -q  -c -T
-install -pm 644 %{SOURCE0} .
 install -pm 644 %{SOURCE1} .
-install -pm 644 %{SOURCE6} .
-
-%build
+install -pm 644 %{SOURCE2} .
 
 
 %install
@@ -46,19 +59,32 @@ install -Dpm 644 %{SOURCE0} \
 
 # yum
 install -dm 755 %{buildroot}%{_sysconfdir}/yum.repos.d
-install -pm 644 %{SOURCE2} %{SOURCE3} %{SOURCE4} %{SOURCE100} %{SOURCE101} \
+install -pm 644 %{SOURCE100} %{SOURCE101} %{SOURCE102} %{SOURCE103} %{SOURCE104} %{SOURCE105} %{SOURCE106} \
     %{buildroot}%{_sysconfdir}/yum.repos.d
-install -pm 644 -D %{SOURCE5} %{buildroot}%{_prefix}/lib/systemd/system-preset/90-epel.preset
+install -pm 644 -D %{SOURCE3} %{buildroot}%{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 
 %files
 %doc README-epel-8-packaging.md
 %license GPL
-%config(noreplace) %{_sysconfdir}/yum.repos.d/*
+%config(noreplace) %{_sysconfdir}/yum.repos.d/epel.repo
+%config(noreplace) %{_sysconfdir}/yum.repos.d/epel-testing.repo
+%config(noreplace) %{_sysconfdir}/yum.repos.d/epel-modular.repo
+%config(noreplace) %{_sysconfdir}/yum.repos.d/epel-testing-modular.repo
+%config(noreplace) %{_sysconfdir}/yum.repos.d/epel-playground.repo
 %{_sysconfdir}/pki/rpm-gpg/*
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
+
+%files -n epel-next-release
+%config(noreplace) %{_sysconfdir}/yum.repos.d/epel-next.repo
+%config(noreplace) %{_sysconfdir}/yum.repos.d/epel-next-testing.repo
+
+
 %changelog
+* Thu Jun 03 2021 Carl George <carl@george.computer> - 8-11
+- Add epel-next-release subpackage
+
 * Sat Dec 05 2020 Kevin Fenzi <kevin@scrye.com> - 8-10
 - Add x509watch.timer enabled by default. Fixes bug #1901721
 

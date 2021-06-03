@@ -26,6 +26,30 @@ the package maintainer through
 to be tracked and if the primary maintainer is not interested in
 branching to EPEL, other ones can step in and do so.
 
+## EPEL Next
+
+EPEL packages are built against RHEL.  EPEL Next is an additional repository
+that allows package maintainers to alternatively build against CentOS Stream.
+This is sometimes necessary when CentOS Stream contains an upcoming RHEL
+library rebase, or if an EPEL package has a minimum version build requirement
+that is already in CentOS Stream but not yet in RHEL.  EPEL Next has its own
+distgit branches, koji build targets, and bodhi releases.
+
+EPEL Next packages have `.next` appended to the disttag (e.g. a disttag of
+`.el8.next` for epel8-next) to provide an upgrade path from an EPEL package
+that was built from the same distgit commit.  A package maintainer can rebuild
+the same commit for both EPEL and EPEL Next and get two different NVRs in koji.
+Within six months, the build requirement necessitating building in EPEL Next
+should be in RHEL, and at that time the package maintainer can do a normal
+release bump commit in the EPEL branch and get a newer NVR than both the
+previous EPEL and EPEL Next packages.
+
+To get started with EPEL Next, request the corresponding branch for the EPEL
+release you are targeting, e.g. request an epel8-next branch to rebuild an
+epel8 package against CentOS Stream 8.  Once the branch is created you can
+merge commits from other branches and submit a build just like you would for
+other EPEL or Fedora branches.
+
 ## EPEL Playground
 
 We have added an additional set of channels for EPEL-8 called
