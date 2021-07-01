@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        7
-Release:        13
+Release:        14
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -58,6 +58,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 %changelog
+* Thu Jul 01 2021 Mohan Boddu <mboddu@bhujji.com> - 7-14
+- Change the baseurl to point to source/tree for srpms
+
 * Sat Oct 31 2020 Kevin Fenzi <kevin@scrye.com> - 7-13
 - Add preset for x2gocleansessions. Fixes bug #1141609
 
