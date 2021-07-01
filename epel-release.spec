@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        8
-Release:        12%{dist}
+Release:        13%{dist}
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 License:        GPLv2
@@ -82,6 +82,9 @@ install -pm 644 -D %{SOURCE3} %{buildroot}%{_prefix}/lib/systemd/system-preset/9
 
 
 %changelog
+* Fri Sep 03 2021 Mohan Boddu <mboddu@bhujji.com> - 8-13
+- Change the baseurl to point to source/tree for srpms
+
 * Fri Jul 30 2021 Kevin Fenzi <kevin@scrye.com> - 8-12
 - Enable certbot-renew.timer ( rhbz#1986205 )
 

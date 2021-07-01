@@ -22,8 +22,8 @@ gpgcheck=1
 [epel-next-testing-source]
 name=Extra Packages for Enterprise Linux $releasever - Next - Testing - $basearch - Source
 # It is much more secure to use the metalink, but if you wish to use a local mirror
-# place its address here.
-#baseurl=https://download.example/pub/epel/testing/next/$releasever/Everything/SRPMS/
+# place it's address here.
+#baseurl=https://download.example/pub/epel/testing/next/$releasever/Everything/source/tree/
 metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-testing-next-source-$releasever&arch=$basearch&infra=$infra&content=$contentdir
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8

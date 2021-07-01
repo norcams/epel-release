@@ -22,8 +22,8 @@ gpgcheck=1
 [epel-modular-source]
 name=Extra Packages for Enterprise Linux Modular $releasever - $basearch - Source
 # It is much more secure to use the metalink, but if you wish to use a local mirror
-# place its address here.
-#baseurl=https://download.example/pub/epel/$releasever/Modular/SRPMS
+# place it's address here.
+#baseurl=https://download.example/pub/epel/$releasever/Modular/source/tree/
 metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-modular-source-$releasever&arch=$basearch&infra=$infra&content=$contentdir
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8
