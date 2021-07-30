@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        8
-Release:        11%{dist}
+Release:        12%{dist}
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 License:        GPLv2
@@ -82,6 +82,9 @@ install -pm 644 -D %{SOURCE3} %{buildroot}%{_prefix}/lib/systemd/system-preset/9
 
 
 %changelog
+* Fri Jul 30 2021 Kevin Fenzi <kevin@scrye.com> - 8-12
+- Enable certbot-renew.timer ( rhbz#1986205 )
+
 * Thu Jun 03 2021 Carl George <carl@george.computer> - 8-11
 - Add epel-next-release subpackage
 
