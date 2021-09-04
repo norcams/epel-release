@@ -13,7 +13,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8
 name=Extra Packages for Enterprise Linux $releasever - Playground - $basearch - Debug
 # It is much more secure to use the metalink, but if you wish to use a local mirror
 # place its address here.
-#baseurl=https://download.example/pub/epel/playground/$releasever/Everything/$basearch/debug
+#baseurl=https://download.example/pub/epel/playground/$releasever/Everything/$basearch/debug/tree
 metalink=https://mirrors.fedoraproject.org/metalink?repo=playground-debug-epel$releasever&arch=$basearch&infra=$infra&content=$contentdir
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8
