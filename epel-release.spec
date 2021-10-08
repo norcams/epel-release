@@ -1,34 +1,40 @@
-Name:           epel-release
-Version:        8
-Release:        13%{dist}
-Summary:        Extra Packages for Enterprise Linux repository configuration
+%bcond_with     base
+%bcond_without  next
+%bcond_with     modular
+%bcond_with     playground
 
+Name:           epel-release
+Version:        9
+Release:        1%{dist}
+Summary:        Extra Packages for Enterprise Linux repository configuration
 License:        GPLv2
 
 # This is a EPEL maintained package which is specific to
 # our distribution.  Thus the source is only available from
 # within this srpm.
 URL:            http://download.fedoraproject.org/pub/epel
-Source0:        http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-8
+Source0:        http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-%{version}
 Source1:        GPL
-Source2:        README-epel-8-packaging.md
-# EPEL default preset policy (borrowed from fedora's 90-default.preset)
-Source3:        90-epel.preset
-
 
 Source100:      epel.repo
-Source101:      epel-testing.repo
-Source102:      epel-next.repo
-Source103:      epel-next-testing.repo
-Source104:      epel-playground.repo
-Source105:      epel-modular.repo
-Source106:      epel-testing-modular.repo
+Source101:      epel-next.repo
+Source102:      epel-modular.repo
+Source103:      epel-playground.repo
 
-BuildArch:     noarch
-Requires:      redhat-release >=  %{version}
+Source200:      epel-testing.repo
+Source201:      epel-next-testing.repo
+Source202:      epel-testing-modular.repo
+
+# EPEL default preset policy (borrowed from fedora's 90-default.preset)
+Source300:      90-epel.preset
+
+BuildArch:      noarch
+Requires:       redhat-release >=  %{version}
 # epel-release is only for enterprise linux, not fedora
-Conflicts:     fedora-release
-Recommends:    (epel-next-release if centos-stream-release)
+Conflicts:      fedora-release
+%if %{with next}
+Recommends:     (epel-next-release if centos-stream-release)
+%endif
 
 
 %description
@@ -36,6 +42,7 @@ This package contains the Extra Packages for Enterprise Linux (EPEL) repository
 GPG key as well as configuration for yum.
 
 
+%if %{with next}
 %package -n epel-next-release
 Summary:        Extra Packages for Enterprise Linux Next repository configuration
 Requires:       %{name} = %{version}-%{release}
@@ -44,44 +51,66 @@ Requires:       %{name} = %{version}-%{release}
 %description -n epel-next-release
 This package contains the Extra Packages for Enterprise Linux (EPEL) Next
 configuration for yum.
+%endif
 
 
 %prep
-%setup -q  -c -T
+%setup -q -c -T
 install -pm 644 %{SOURCE1} .
-install -pm 644 %{SOURCE2} .
 
 
 %install
-#GPG Key
+# GPG Key
 install -Dpm 644 %{SOURCE0} \
     %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-EPEL-%{version}
 
-# yum
+# yum repo configs
 install -dm 755 %{buildroot}%{_sysconfdir}/yum.repos.d
-install -pm 644 %{SOURCE100} %{SOURCE101} %{SOURCE102} %{SOURCE103} %{SOURCE104} %{SOURCE105} %{SOURCE106} \
-    %{buildroot}%{_sysconfdir}/yum.repos.d
-install -pm 644 -D %{SOURCE3} %{buildroot}%{_prefix}/lib/systemd/system-preset/90-epel.preset
+%if %{with base}
+install -pm 644 %{SOURCE100} %{SOURCE200} %{buildroot}%{_sysconfdir}/yum.repos.d
+%endif
+%if %{with next}
+install -pm 644 %{SOURCE101} %{SOURCE201} %{buildroot}%{_sysconfdir}/yum.repos.d
+%endif
+%if %{with modular}
+install -pm 644 %{SOURCE102} %{SOURCE202} %{buildroot}%{_sysconfdir}/yum.repos.d
+%endif
+%if %{with playground}
+install -pm 644 %{SOURCE103} %{buildroot}%{_sysconfdir}/yum.repos.d
+%endif
+
+# systemd presets
+install -pm 644 -D %{SOURCE300} %{buildroot}%{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 
 %files
-%doc README-epel-8-packaging.md
 %license GPL
+%if %{with base}
 %config(noreplace) %{_sysconfdir}/yum.repos.d/epel.repo
 %config(noreplace) %{_sysconfdir}/yum.repos.d/epel-testing.repo
+%endif
+%if %{with modular}
 %config(noreplace) %{_sysconfdir}/yum.repos.d/epel-modular.repo
 %config(noreplace) %{_sysconfdir}/yum.repos.d/epel-testing-modular.repo
+%endif
+%if %{with playground}
 %config(noreplace) %{_sysconfdir}/yum.repos.d/epel-playground.repo
+%endif
 %{_sysconfdir}/pki/rpm-gpg/*
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 
+%if %{with next}
 %files -n epel-next-release
 %config(noreplace) %{_sysconfdir}/yum.repos.d/epel-next.repo
 %config(noreplace) %{_sysconfdir}/yum.repos.d/epel-next-testing.repo
+%endif
 
 
 %changelog
+* Fri Oct 08 2021 Carl George <carl@redhat.com> - 9-1
+- Initial package for epel9-next
+
 * Fri Sep 03 2021 Mohan Boddu <mboddu@bhujji.com> - 8-13
 - Change the baseurl to point to source/tree for srpms
 

@@ -7,7 +7,7 @@ metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-next-$releasever&a
 enabled=1
 gpgcheck=1
 countme=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$releasever
 
 [epel-next-debuginfo]
 name=Extra Packages for Enterprise Linux $releasever - Next - $basearch - Debug
@@ -16,15 +16,15 @@ name=Extra Packages for Enterprise Linux $releasever - Next - $basearch - Debug
 #baseurl=https://download.example/pub/epel/next/$releasever/Everything/$basearch/debug/
 metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-next-debug-$releasever&arch=$basearch&infra=$infra&content=$contentdir
 enabled=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$releasever
 gpgcheck=1
 
 [epel-next-source]
 name=Extra Packages for Enterprise Linux $releasever - Next - $basearch - Source
 # It is much more secure to use the metalink, but if you wish to use a local mirror
-# place it's address here.
+# place its address here.
 #baseurl=https://download.example/pub/epel/next/$releasever/Everything/source/tree/
 metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-next-source-$releasever&arch=$basearch&infra=$infra&content=$contentdir
 enabled=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$releasever
 gpgcheck=1
