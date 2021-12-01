@@ -1,11 +1,11 @@
-%bcond_with     base
+%bcond_without  base
 %bcond_without  next
 %bcond_with     modular
 %bcond_with     playground
 
 Name:           epel-release
 Version:        9
-Release:        1%{dist}
+Release:        2%{dist}
 Summary:        Extra Packages for Enterprise Linux repository configuration
 License:        GPLv2
 
@@ -108,6 +108,9 @@ install -pm 644 -D %{SOURCE300} %{buildroot}%{_prefix}/lib/systemd/system-preset
 
 
 %changelog
+* Wed Dec 01 2021 Carl George <carl@george.computer> - 9-2
+- Enable epel9 repo files
+
 * Fri Oct 08 2021 Carl George <carl@redhat.com> - 9-1
 - Initial package for epel9-next
 
