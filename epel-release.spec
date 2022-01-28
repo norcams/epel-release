@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        8
-Release:        13%{dist}
+Release:        14%{dist}
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 License:        GPLv2
@@ -20,7 +20,6 @@ Source100:      epel.repo
 Source101:      epel-testing.repo
 Source102:      epel-next.repo
 Source103:      epel-next-testing.repo
-Source104:      epel-playground.repo
 Source105:      epel-modular.repo
 Source106:      epel-testing-modular.repo
 
@@ -59,7 +58,7 @@ install -Dpm 644 %{SOURCE0} \
 
 # yum
 install -dm 755 %{buildroot}%{_sysconfdir}/yum.repos.d
-install -pm 644 %{SOURCE100} %{SOURCE101} %{SOURCE102} %{SOURCE103} %{SOURCE104} %{SOURCE105} %{SOURCE106} \
+install -pm 644 %{SOURCE100} %{SOURCE101} %{SOURCE102} %{SOURCE103} %{SOURCE105} %{SOURCE106} \
     %{buildroot}%{_sysconfdir}/yum.repos.d
 install -pm 644 -D %{SOURCE3} %{buildroot}%{_prefix}/lib/systemd/system-preset/90-epel.preset
 
@@ -71,7 +70,6 @@ install -pm 644 -D %{SOURCE3} %{buildroot}%{_prefix}/lib/systemd/system-preset/9
 %config(noreplace) %{_sysconfdir}/yum.repos.d/epel-testing.repo
 %config(noreplace) %{_sysconfdir}/yum.repos.d/epel-modular.repo
 %config(noreplace) %{_sysconfdir}/yum.repos.d/epel-testing-modular.repo
-%config(noreplace) %{_sysconfdir}/yum.repos.d/epel-playground.repo
 %{_sysconfdir}/pki/rpm-gpg/*
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 
@@ -82,6 +80,10 @@ install -pm 644 -D %{SOURCE3} %{buildroot}%{_prefix}/lib/systemd/system-preset/9
 
 
 %changelog
+* Fri Jan 28 2022 Troy Dawson <tdawson@redhat.com> - 8-14
+- Remove epel8-playground repo
+- Update playground section in README-epel-8-packaging.md
+
 * Fri Sep 03 2021 Mohan Boddu <mboddu@bhujji.com> - 8-13
 - Change the baseurl to point to source/tree for srpms
 

@@ -52,50 +52,15 @@ other EPEL or Fedora branches.
 
 ## EPEL Playground
 
-We have added an additional set of channels for EPEL-8 called
-playground. It is meant to be sort of like Fedora Rawhide so that
-packagers can work on versions of software which are too fast moving
-or will have large API changes from what they are putting in the
-regular channel.
+EPEL Playground was shut down in January 2022
 
-To try and make this transparent, we have made it so when a package is
-built in epel8 it will normally also be built in
-epel8-playground. This is done via a packages.cfg file which lists the
-targets for fedpkg to build against. A successful package build will
-then go through 2 different paths:
+EPEL 8 Playground was a place that developers and maintainers could 
+"play around" with updated, or changed packages in epel. EPEL Playground
+never really worked out and ended up being more burden than helpful.
 
-* epel8 package will go into bodhi to be put into epel8-testing
-* epel8-playground will bypass bodhi and go directly into
-  epel8-playground the next compose.
+If developers or maintainers want something similar to EPEL Playground 
+we recommend Fedora COPR, which has availability for EPEL builds.
 
-If a packager needs to focus only on epel8 or epel8-playground they
-can edit packages.cfg to change the ```target= epel8
-epel8-playground``` to ```target= epel8 ```.
-
-Packages in epel8-playground are primarily to be used in the following
-manner:
-
-* To test out some new version of the package that might not be stable
-  yet.
-
-* To test out some new packaging of the package
-
-* To test a major version change of the package that they want to land
-  at the next epel8 minor release.
-
-* To build a package that will never be stable enough for epel8, but
-  still could be useful to some.
-
-* At minor RHEL releases (ie, 8.1, 8.2) people can pull in big changes
-  from playground to the main epel8 packages. Since people will be
-  upgrading and paying more attention than usual anyhow at those
-  points, it’s a great chance to do that change, but also you want to
-  make sure it’s panned out, so you can test before hand in
-  playground.
-
-Consumers should be aware that packages in EPEL8-playground are there
-without any Service Level Expectations. You may want to only cherry
-pick packages from there as needed.
 
 ## Developer request for branching multiple packages
 
