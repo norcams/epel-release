@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        8
-Release:        14%{dist}
+Release:        15%{dist}
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 License:        GPLv2
@@ -80,6 +80,9 @@ install -pm 644 -D %{SOURCE3} %{buildroot}%{_prefix}/lib/systemd/system-preset/9
 
 
 %changelog
+* Mon Mar 14 2022 Troy Dawson <tdawson@redhat.com> - 8-15
+- Remove the use of $releasever ( rhbz#1969500 )
+
 * Fri Jan 28 2022 Troy Dawson <tdawson@redhat.com> - 8-14
 - Remove epel8-playground repo
 - Update playground section in README-epel-8-packaging.md
