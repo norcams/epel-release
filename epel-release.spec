@@ -5,7 +5,7 @@
 
 Name:           epel-release
 Version:        9
-Release:        2%{dist}
+Release:        3%{dist}
 Summary:        Extra Packages for Enterprise Linux repository configuration
 License:        GPLv2
 
@@ -27,6 +27,9 @@ Source202:      epel-testing-modular.repo
 
 # EPEL default preset policy (borrowed from fedora's 90-default.preset)
 Source300:      90-epel.preset
+
+# Add epel crb repo
+Source301:      crb
 
 BuildArch:      noarch
 Requires:       redhat-release >=  %{version}
@@ -82,6 +85,17 @@ install -pm 644 %{SOURCE103} %{buildroot}%{_sysconfdir}/yum.repos.d
 # systemd presets
 install -pm 644 -D %{SOURCE300} %{buildroot}%{_prefix}/lib/systemd/system-preset/90-epel.preset
 
+# Add epel crb repo
+install -D -pm744 -t %{buildroot}%{_bindir} %{SOURCE301}
+
+%post
+# Doing a check to see if crb is enabled is as hard and resource intense as enabling or disabling crb.
+#   So we will say crb is recommended, without first checking.  But only on the initial install.
+if [ "$1" -eq 1 ] ; then
+  echo "Many EPEL packages require the CodeReady Builder (CRB) repository."
+  echo "It is recommended that you run %{_bindir}/crb enable to enable the CRB repository."
+fi
+
 
 %files
 %license GPL
@@ -98,7 +112,7 @@ install -pm 644 -D %{SOURCE300} %{buildroot}%{_prefix}/lib/systemd/system-preset
 %endif
 %{_sysconfdir}/pki/rpm-gpg/*
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
-
+%{_bindir}/crb
 
 %if %{with next}
 %files -n epel-next-release
@@ -108,6 +122,9 @@ install -pm 644 -D %{SOURCE300} %{buildroot}%{_prefix}/lib/systemd/system-preset
 
 
 %changelog
+* Wed Jun 29 2022 Troy Dawson <tdawson@redhat.com> - 9-3
+- Add crb script
+
 * Wed Dec 01 2021 Carl George <carl@george.computer> - 9-2
 - Enable epel9 repo files
 
