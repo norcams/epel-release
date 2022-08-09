@@ -5,7 +5,7 @@
 
 Name:           epel-release
 Version:        9
-Release:        3%{dist}
+Release:        4%{dist}
 Summary:        Extra Packages for Enterprise Linux repository configuration
 License:        GPLv2
 
@@ -35,6 +35,9 @@ BuildArch:      noarch
 Requires:       redhat-release >=  %{version}
 # epel-release is only for enterprise linux, not fedora
 Conflicts:      fedora-release
+# crb needs config-manager to run
+# But only recommend it, incase people do not need crb
+Recommends:     dnf-command(config-manager)
 %if %{with next}
 Recommends:     (epel-next-release if centos-stream-release)
 %endif
@@ -122,6 +125,9 @@ fi
 
 
 %changelog
+* Tue Aug 09 2022 Troy Dawson <tdawson@redhat.com> - 9-4
+- Tweak crb script, Recommends dnf-command(config-manager) (#2115602)
+
 * Wed Jun 29 2022 Troy Dawson <tdawson@redhat.com> - 9-3
 - Add crb script
 

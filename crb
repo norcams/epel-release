@@ -46,6 +46,13 @@ enable_disable_repo(){
     # Only RHEL has a repo with codeready in it, use subcription-manager
     subscription-manager repos ${command} ${crb_repo}
     else
+    # Determine if dnf-command(config-manager) is installed
+    if ! rpm -q --whatprovides 'dnf-command(config-manager)' > /dev/null 2>&1 ; then
+        echo "Error: Please run: dnf install 'dnf-command(config-manager)'" >&2
+        echo "       before trying to enable/disable the CRB repo." >&2
+        echo "Aborting"'!' >&2
+        exit 1
+    fi
     # Everything else uses dnf config-manager
     dnf config-manager ${command} ${crb_repo}
     fi
