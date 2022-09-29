@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        8
-Release:        17%{dist}
+Release:        18%{dist}
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 License:        GPLv2
@@ -98,6 +98,10 @@ fi
 
 
 %changelog
+* Thu Sep 29 2022 Carl George <carl@george.computer> - 8-18
+- Disable epel-modular repo by default
+- Mark all epel-modular repos as deprecated
+
 * Tue Aug 09 2022 Troy Dawson <tdawson@redhat.com> - 8-17
 - Tweak crb script, Recommends dnf-command(config-manager) (#2115602)
 
