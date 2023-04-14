@@ -5,7 +5,7 @@
 
 Name:           epel-release
 Version:        9
-Release:        4%{dist}
+Release:        5%{dist}
 Summary:        Extra Packages for Enterprise Linux repository configuration
 License:        GPLv2
 
@@ -125,6 +125,9 @@ fi
 
 
 %changelog
+* Fri Apr 14 2023 Troy Dawson <tdawson@redhat.com> - 9-5
+- Tweak crb script, check os-release for RHEL (#2186721)
+
 * Tue Aug 09 2022 Troy Dawson <tdawson@redhat.com> - 9-4
 - Tweak crb script, Recommends dnf-command(config-manager) (#2115602)
 
