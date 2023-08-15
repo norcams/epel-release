@@ -1,11 +1,12 @@
 %bcond_without  base
 %bcond_without  next
+%bcond_without  open264
 %bcond_with     modular
 %bcond_with     playground
 
 Name:           epel-release
 Version:        9
-Release:        5%{dist}
+Release:        6%{dist}
 Summary:        Extra Packages for Enterprise Linux repository configuration
 License:        GPLv2
 
@@ -20,6 +21,7 @@ Source100:      epel.repo
 Source101:      epel-next.repo
 Source102:      epel-modular.repo
 Source103:      epel-playground.repo
+Source104:      epel-cisco-openh264.repo
 
 Source200:      epel-testing.repo
 Source201:      epel-next-testing.repo
@@ -84,6 +86,9 @@ install -pm 644 %{SOURCE102} %{SOURCE202} %{buildroot}%{_sysconfdir}/yum.repos.d
 %if %{with playground}
 install -pm 644 %{SOURCE103} %{buildroot}%{_sysconfdir}/yum.repos.d
 %endif
+%if %{with openh264}
+install -pm 644 %{SOURCE104} %{buildroot}%{_sysconfdir}/yum.repos.d
+%endif
 
 # systemd presets
 install -pm 644 -D %{SOURCE300} %{buildroot}%{_prefix}/lib/systemd/system-preset/90-epel.preset
@@ -113,6 +118,9 @@ fi
 %if %{with playground}
 %config(noreplace) %{_sysconfdir}/yum.repos.d/epel-playground.repo
 %endif
+%if %{with openh264}
+%config(noreplace) %{_sysconfdir}/yum.repos.d/epel-cisco-openh264.repo
+%endif
 %{_sysconfdir}/pki/rpm-gpg/*
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 %{_bindir}/crb
@@ -125,6 +133,9 @@ fi
 
 
 %changelog
+* Tue Aug 15 2023 Neal Gompa <ngompa@fedoraproject.org> - 9-6
+- Add EPEL OpenH264 repository (#2053295)
+
 * Fri Apr 14 2023 Troy Dawson <tdawson@redhat.com> - 9-5
 - Tweak crb script, check os-release for RHEL (#2186721)
 
