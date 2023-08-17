@@ -1,12 +1,12 @@
 %bcond_without  base
 %bcond_without  next
-%bcond_without  open264
+%bcond_without  openh264
 %bcond_with     modular
 %bcond_with     playground
 
 Name:           epel-release
 Version:        9
-Release:        6%{dist}
+Release:        7%{dist}
 Summary:        Extra Packages for Enterprise Linux repository configuration
 License:        GPLv2
 
@@ -133,6 +133,9 @@ fi
 
 
 %changelog
+* Thu Aug 17 2023 Neal Gompa <ngompa@fedoraproject.org> - 9-7
+- Fix typo to actually enable EPEL OpenH264 repo
+
 * Tue Aug 15 2023 Neal Gompa <ngompa@fedoraproject.org> - 9-6
 - Add EPEL OpenH264 repository (#2053295)
 
