@@ -17,11 +17,6 @@ Source3:        90-epel.preset
 
 
 Source100:      epel.repo
-Source101:      epel-testing.repo
-Source102:      epel-next.repo
-Source103:      epel-next-testing.repo
-Source105:      epel-modular.repo
-Source106:      epel-testing-modular.repo
 
 # Add epel crb repo
 Source301:      crb
@@ -41,16 +36,6 @@ This package contains the Extra Packages for Enterprise Linux (EPEL) repository
 GPG key as well as configuration for yum.
 
 
-%package -n epel-next-release
-Summary:        Extra Packages for Enterprise Linux Next repository configuration
-Requires:       %{name} = %{version}-%{release}
-
-
-%description -n epel-next-release
-This package contains the Extra Packages for Enterprise Linux (EPEL) Next
-configuration for yum.
-
-
 %prep
 %setup -q  -c -T
 install -pm 644 %{SOURCE1} .
@@ -64,8 +49,7 @@ install -Dpm 644 %{SOURCE0} \
 
 # yum
 install -dm 755 %{buildroot}%{_sysconfdir}/yum.repos.d
-install -pm 644 %{SOURCE100} %{SOURCE101} %{SOURCE102} %{SOURCE103} %{SOURCE105} %{SOURCE106} \
-    %{buildroot}%{_sysconfdir}/yum.repos.d
+install -pm 644 %{SOURCE100} %{buildroot}%{_sysconfdir}/yum.repos.d
 install -pm 644 -D %{SOURCE3} %{buildroot}%{_prefix}/lib/systemd/system-preset/90-epel.preset
 
 # Add epel crb repo
@@ -84,17 +68,9 @@ fi
 %doc README-epel-8-packaging.md
 %license GPL
 %config(noreplace) %{_sysconfdir}/yum.repos.d/epel.repo
-%config(noreplace) %{_sysconfdir}/yum.repos.d/epel-testing.repo
-%config(noreplace) %{_sysconfdir}/yum.repos.d/epel-modular.repo
-%config(noreplace) %{_sysconfdir}/yum.repos.d/epel-testing-modular.repo
 %{_sysconfdir}/pki/rpm-gpg/*
 %{_prefix}/lib/systemd/system-preset/90-epel.preset
 %{_bindir}/crb
-
-
-%files -n epel-next-release
-%config(noreplace) %{_sysconfdir}/yum.repos.d/epel-next.repo
-%config(noreplace) %{_sysconfdir}/yum.repos.d/epel-next-testing.repo
 
 
 %changelog
